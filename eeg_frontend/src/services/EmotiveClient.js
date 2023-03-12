@@ -6,6 +6,16 @@ const AUTHORIZE_ID = 2;
 const QUERY_HEADSET_ID = 3;
 const CONTROL_DEVICE_ID = 4;
 
+const CREATE_SESSION_ID = 5;
+const CREATE_RECORD_ID = 6;
+const SUBSCRIBE_ID = 7;
+const INJECT_MARKER_ID = 8;
+
+const UNSUBSCRIBE_ID = 9;
+
+
+
+
 //Warning Codes
 const CONTROL_DEVICE_CODES = [100, 101, 102, 104, 113];
 
@@ -26,6 +36,8 @@ class EmotiveClient {
         this.requests = {};
 
         this.isConnected = false;
+        this.dataCols = [];
+        this.dataSamples = [];
 
         this.ws = new WebSocket(CORTEX_URL);
         this.ws.addEventListener('message', (event) => {
@@ -150,11 +162,102 @@ class EmotiveClient {
 
     }
 
+    createSession() {
+       let req = {
+            "id": CREATE_SESSION_ID,
+            "jsonrpc": "2.0",
+            "method": "createSession",
+            "params": { "cortexToken": this.cortexToken, "status": "activate"}
+        }
+
+        let [resolve, reject, p] = createDeferredPromise();
+
+        const handler = (res) => {
+            this.sessionId = res["result"]["id"];
+            resolve();
+        }
+
+        this.requests[CREATE_SESSION_ID] = handler;
+        this.ws.send(JSON.stringify(req));
+        return p;
+    }
+
+    createRecord() {
+        let req = {
+            "id": CREATE_RECORD_ID,
+            "jsonrpc": "2.0",
+            "method": "createRecord",
+            "params": {"cortexToken": this.cortexToken, "session": this.sessionId, "title": "Record"}
+        }
+
+        let [resolve, reject, p] = createDeferredPromise();
+
+        const handler = (res) => {
+            this.recordId = res["result"]["record"]["uuid"];
+            resolve();
+        }
+
+        this.requests[CREATE_RECORD_ID] = handler;
+        this.ws.send(JSON.stringify(req));
+        return p;
+    }
+
+    subscribe() {
+        let req = {
+            "id": SUBSCRIBE_ID,
+            "jsonrpc": "2.0",
+            "method": "subscribe",
+            "params": {
+                "cortexToken": this.cortexToken,
+                "session": this.sessionId,
+                "streams": ["eeg"]
+            }
+        }
+
+        let [resolve, reject, p] = createDeferredPromise();
+
+        const handler = (res) => {
+            this.dataCols = res["result"]["success"][1]["cols"];
+            resolve();
+        }
+
+        this.requests[SUBSCRIBE_ID] = handler;
+        this.ws.send(JSON.stringify(req));
+        return p;
+
+    }
+
+    unsubscribe() {
+        let req = {
+            "id": UNSUBSCRIBE_ID,
+            "jsonrpc": "2.0",
+            "method": "unsubscribe",
+            "params": {
+                "cortexToken": this.cortexToken,
+                "session": this.sessionId,
+                "streams": ["eeg"]
+            }
+        }
+
+        let [resolve, reject, p] = createDeferredPromise();
+
+        const handler = (res) => {
+            resolve();
+        }
+
+        this.requests[UNSUBSCRIBE_ID] = handler;
+        this.ws.send(JSON.stringify(req));
+        return p;
+    }
+
     onMessage(data) {
         console.log(data);
         let res = JSON.parse(data);
         if("id" in res) {
             this.requests[res['id']](res);
+        }
+        else if("sid" in res) {
+            this.handleDataSample(res);
         }
         else if("warning" in res) {
             this.handleWarnings(res)
@@ -167,6 +270,12 @@ class EmotiveClient {
         }
     }
 
+    handleDataSample(res) {
+        let time = res["time"];
+        let data = res["eeg"]
+        let final = {"time": time, "data": data}
+        this.dataSamples.push(final);
+    }
 }
 
 export default EmotiveClient;
