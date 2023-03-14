@@ -11,10 +11,10 @@ const CREATE_RECORD_ID = 6;
 const SUBSCRIBE_ID = 7;
 const INJECT_MARKER_ID = 8;
 
+
 const UNSUBSCRIBE_ID = 9;
-
-
-
+const CLOSE_SESSION_ID = 10;
+const DISCONNECT_ID = 11;
 
 //Warning Codes
 const CONTROL_DEVICE_CODES = [100, 101, 102, 104, 113];
@@ -58,6 +58,11 @@ class EmotiveClient {
         if(!this.isConnected) await this.connectHeadset();
 
         console.log(`CONNECTED TO ${this.headsetId}`);
+    }
+
+    async disconnect() {
+        this.isConnected = false;
+        await this.disconnectHeadset();
     }
 
     openConnection() {
@@ -167,7 +172,7 @@ class EmotiveClient {
             "id": CREATE_SESSION_ID,
             "jsonrpc": "2.0",
             "method": "createSession",
-            "params": { "cortexToken": this.cortexToken, "status": "activate"}
+            "params": { "cortexToken": this.cortexToken, "status": "active", "headset": this.headsetId }
         }
 
         let [resolve, reject, p] = createDeferredPromise();
@@ -217,7 +222,7 @@ class EmotiveClient {
         let [resolve, reject, p] = createDeferredPromise();
 
         const handler = (res) => {
-            this.dataCols = res["result"]["success"][1]["cols"];
+            this.dataCols = res["result"]["success"][0]["cols"];
             resolve();
         }
 
@@ -246,6 +251,52 @@ class EmotiveClient {
         }
 
         this.requests[UNSUBSCRIBE_ID] = handler;
+        this.ws.send(JSON.stringify(req));
+        return p;
+    }
+
+    closeSession() {
+        let req = {
+            "id": CLOSE_SESSION_ID,
+            "jsonrpc": "2.0",
+            "method": "updateSession",
+            "params": {
+                "cortexToken": this.cortexToken,
+                "session": this.sessionId,
+                "status": "close"
+            }
+        }
+
+        let [resolve, reject, p] = createDeferredPromise();
+
+        const handler = (res) => {
+            resolve();
+        }
+
+        this.requests[CLOSE_SESSION_ID] = handler;
+        this.ws.send(JSON.stringify(req));
+        return p;
+
+    }
+
+    disconnectHeadset() {
+        let req = {
+            "id": DISCONNECT_ID,
+            "jsonrpc": "2.0",
+            "method": "controlDevice",
+            "params": {
+                "command": "disconnect",
+                "headset": this.headsetId
+            }
+        }
+
+        let [resolve, reject, p] = createDeferredPromise();
+
+        const handler = (res) => {
+            resolve();
+        }
+
+        this.requests[DISCONNECT_ID] = handler;
         this.ws.send(JSON.stringify(req));
         return p;
     }

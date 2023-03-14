@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="277adc59-f237-4992-9fca-e17304c5510d" name="Changes" comment="Connection Code.">
+    <list default="true" id="277adc59-f237-4992-9fca-e17304c5510d" name="Changes" comment="Data sample code.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eeg_frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/eeg_frontend/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eeg_frontend/src/services/EmotiveClient.js" beforeDir="false" afterPath="$PROJECT_DIR$/eeg_frontend/src/services/EmotiveClient.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -92,7 +93,9 @@
       <workItem from="1678515017047" duration="455000" />
       <workItem from="1678515482275" duration="1121000" />
       <workItem from="1678516737289" duration="11351000" />
-      <workItem from="1678571286131" duration="5193000" />
+      <workItem from="1678571286131" duration="5388000" />
+      <workItem from="1678684568228" duration="1044000" />
+      <workItem from="1678749068136" duration="3441000" />
     </task>
     <task id="LOCAL-00001" summary="Init and started Emotive Client for browser.">
       <created>1678528416182</created>
@@ -108,7 +111,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678530125327</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Data sample code.">
+      <created>1678612158608</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1678612158608</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -117,6 +127,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Init and started Emotive Client for browser." />
     <MESSAGE value="Connection Code." />
-    <option name="LAST_COMMIT_MESSAGE" value="Connection Code." />
+    <MESSAGE value="Data sample code." />
+    <option name="LAST_COMMIT_MESSAGE" value="Data sample code." />
   </component>
 </project>
