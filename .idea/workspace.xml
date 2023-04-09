@@ -5,9 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="277adc59-f237-4992-9fca-e17304c5510d" name="Changes" comment="Data sample code.">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eeg_frontend/src/Login.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eeg_frontend/src/components/FormAction.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eeg_frontend/src/components/Header.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eeg_frontend/src/components/Input.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eeg_frontend/src/components/Login.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eeg_frontend/src/constants/formFields.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eeg_frontend/src/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eeg_frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/eeg_frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eeg_frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/eeg_frontend/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eeg_frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/eeg_frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eeg_frontend/src/services/EmotiveClient.js" beforeDir="false" afterPath="$PROJECT_DIR$/eeg_frontend/src/services/EmotiveClient.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,22 +43,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/dev/projects/web_dev/EEG/eeg_frontend/src/App.js&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;5f45789976e99c9543cf319f3ef24cec&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/gummi/IdeaProjects/EEG-Authentication/eeg_frontend/src",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "spring.configuration.checksum": "5f45789976e99c9543cf319f3ef24cec",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\gummi\IdeaProjects\EEG-Authentication\eeg_frontend\src" />
+    </key>
+  </component>
   <component name="RunManager" selected="npm.start">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="EEG" />
@@ -96,6 +114,15 @@
       <workItem from="1678571286131" duration="5388000" />
       <workItem from="1678684568228" duration="1044000" />
       <workItem from="1678749068136" duration="3441000" />
+      <workItem from="1679080475513" duration="577000" />
+      <workItem from="1679081434505" duration="1766000" />
+      <workItem from="1679349785600" duration="535000" />
+      <workItem from="1679622180495" duration="126000" />
+      <workItem from="1679687445057" duration="740000" />
+      <workItem from="1679689080784" duration="19000" />
+      <workItem from="1679956507134" duration="94000" />
+      <workItem from="1680818743289" duration="3331000" />
+      <workItem from="1681001878292" duration="459000" />
     </task>
     <task id="LOCAL-00001" summary="Init and started Emotive Client for browser.">
       <created>1678528416182</created>
