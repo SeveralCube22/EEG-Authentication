@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="277adc59-f237-4992-9fca-e17304c5510d" name="Changes" comment="Data sample code.">
+    <list default="true" id="277adc59-f237-4992-9fca-e17304c5510d" name="Changes" comment="Done with basic wrapper over emotiv headset.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eeg_frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/eeg_frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eeg_frontend/src/services/EmotiveClient.js" beforeDir="false" afterPath="$PROJECT_DIR$/eeg_frontend/src/services/EmotiveClient.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +94,12 @@
       <workItem from="1678516737289" duration="11351000" />
       <workItem from="1678571286131" duration="5388000" />
       <workItem from="1678684568228" duration="1044000" />
-      <workItem from="1678749068136" duration="3441000" />
+      <workItem from="1678749068136" duration="3818000" />
+      <workItem from="1678856427713" duration="504000" />
+      <workItem from="1678857366451" duration="98000" />
+      <workItem from="1679080701756" duration="873000" />
+      <workItem from="1679083250087" duration="627000" />
+      <workItem from="1681324034084" duration="4000" />
     </task>
     <task id="LOCAL-00001" summary="Init and started Emotive Client for browser.">
       <created>1678528416182</created>
@@ -118,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678612158608</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Done with basic wrapper over emotiv headset.">
+      <created>1678785291329</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1678785291329</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -128,6 +139,7 @@
     <MESSAGE value="Init and started Emotive Client for browser." />
     <MESSAGE value="Connection Code." />
     <MESSAGE value="Data sample code." />
-    <option name="LAST_COMMIT_MESSAGE" value="Data sample code." />
+    <MESSAGE value="Done with basic wrapper over emotiv headset." />
+    <option name="LAST_COMMIT_MESSAGE" value="Done with basic wrapper over emotiv headset." />
   </component>
 </project>

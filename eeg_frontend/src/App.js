@@ -22,7 +22,10 @@ function App() {
     }
 
   return (
-     <button onClick={startEmotiveClient}>Record</button>
+      <div style={{alignContent: "center", alignItems: "center"}}>
+          <button onClick={startEmotiveClient}>Record</button>
+      </div>
+
   );
 }
 
