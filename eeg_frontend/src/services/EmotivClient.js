@@ -39,10 +39,10 @@ class EmotivClient {
 
         this.isConnected = false;
 
-        //this.ws = new WebSocket(CORTEX_URL);
-        /*this.ws.addEventListener('message', (event) => {
+        this.ws = new WebSocket(CORTEX_URL);
+        this.ws.addEventListener('message', (event) => {
            this.onMessage(event.data);
-        });*/
+        });
 
     }
 

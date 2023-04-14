@@ -39,7 +39,7 @@ const EEG_LABELS = ["AF3","F7","F3","FC5","T7","P7","O1","O2","P8","T8","FC6","F
 const EEG_LABEL_COLORS = ['green', 'red', 'blue', 'yellow', 'purple', 'indigo', 'cyan', 'olive', 'cornflowerblue', 'lightslategrey', 'lime', 'teal', 'maroon', 'grey'];
 const NUM_TIME_LABELS = 5;
 
-export function EEDataGraph({eegData}) {
+export function EEGDataGraph({eegData}) {
     let [graphData, setGraphData] = useState(null);
 
     const reformatTimeData = data => {

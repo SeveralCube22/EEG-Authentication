@@ -1,8 +1,7 @@
 import {useEffect, useState} from "react";
 import { loginFields } from "../constants/formFields";
 import Input from "./Input";
-import startEmotiveClient from "../App"
-import {EEDataGraph, Graph} from "./EEGDataGraph";
+import {EEGDataGraph} from "./EEGDataGraph";
 
 const fields=loginFields;
 let fieldsState = {};
@@ -16,20 +15,21 @@ export default function Login({emotivManager, eegData}) {
         setLoginState({...loginState,[e.target.id]:e.target.value})
     }
 
-    const handleSubmit = e => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        authenticateUser();
+        await authenticateUser();
     }
 
     //Include login API integration here
-    const authenticateUser =  () => {
-        //await emotivManager.init();
-        emotivManager.subscribe();
+    const authenticateUser =  async () => {
+        await emotivManager.init();
+        await emotivManager.subscribe();
         setTimeout( () => {
-            console.log("STOPPED");
-            emotivManager.unsubscribe();
+            emotivManager.unsubscribe()
+                .then(() => emotivManager.closeSession())
+                .then(() => emotivManager.disconnect());
 
-        }, 5000);
+        }, 61000);
     }
 
     useEffect(() => {
@@ -63,7 +63,7 @@ export default function Login({emotivManager, eegData}) {
                 }
             </div>
             {submitButton()}
-            {showGraph ? <EEDataGraph eegData={eegData}/> : <div/>}
+            {showGraph ? <EEGDataGraph eegData={eegData}/> : <div/>}
         </form>
     );
 }

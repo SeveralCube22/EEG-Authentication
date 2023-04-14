@@ -5,10 +5,6 @@ class EmotivManager {
     constructor(emotivClientId, emotivClientSecret, setEEGData) {
         this.emotivClient = new EmotivClient(emotivClientId, emotivClientSecret, this);
         this.setEEGData = setEEGData;
-
-        // ONLY FOR TESTING GRAPH! WILL DELETE AFTER
-        this.intervalId = null;
-        this.counter = 0;
     }
 
     init() {
@@ -18,17 +14,11 @@ class EmotivManager {
     }
 
     subscribe() {
-        this.intervalId = setInterval(() => {
-                this.counter = this.counter + 10;
-                this.notify({"time": this.counter, "eeg": Array.from({length: 14}, () => Math.floor(Math.random() * 1000))})
-            }
-        )
-        //return this.emotivClient.subscribe();
+        return this.emotivClient.subscribe();
     }
 
     unsubscribe() {
-        clearInterval(this.intervalId);
-        //return this.emotivClient.unsubscribe();
+        return this.emotivClient.unsubscribe();
     }
 
     closeSession() {
@@ -40,13 +30,10 @@ class EmotivManager {
     }
 
     notify(data) {
-        let sensorData = data['eeg'].slice(2, 16); // only selected sensor data
-        //this.setEEGData(eegData => [...eegData, sensorData]);
-
-        // ONLY FOR TESTING
+        let sensorData = data['eeg'].slice(2, 16);
         this.setEEGData(prev => ({
             'time': [...prev['time'], data['time']],
-            'eeg': [...prev['eeg'], data['eeg']]
+            'eeg': [...prev['eeg'], sensorData]
         }));
     }
 }
