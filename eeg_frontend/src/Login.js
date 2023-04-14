@@ -1,6 +1,6 @@
 import Header from "./components/Header.js";
 import Login from "./components/Login";
-export default function LoginPage(){
+export default function LoginPage({emotivManager, eegData}) {
     return(
         <>
             <Header
@@ -9,7 +9,7 @@ export default function LoginPage(){
                 linkName= "Github Repo"
                 linkUrl = "https://github.com/SeveralCube22/EEG-Authentication"
             />
-            <Login/>
+            <Login emotivManager={emotivManager} eegData={eegData}/>
         </>
     );
 }
