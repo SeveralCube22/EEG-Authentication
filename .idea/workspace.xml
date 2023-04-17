@@ -4,18 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="277adc59-f237-4992-9fca-e17304c5510d" name="Changes" comment="Some small local changes.">
-      <change afterPath="$PROJECT_DIR$/eeg_frontend/src/components/EEGDataGraph.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eeg_frontend/src/services/EmotivManager.js" afterDir="false" />
+    <list default="true" id="277adc59-f237-4992-9fca-e17304c5510d" name="Changes" comment="Added support for graph.">
+      <change afterPath="$PROJECT_DIR$/eeg_preprocessing/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eeg_preprocessing/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eeg_preprocessing/src/preprocess.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eeg_frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/eeg_frontend/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eeg_frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/eeg_frontend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eeg_frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/eeg_frontend/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eeg_frontend/src/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/eeg_frontend/src/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eeg_frontend/src/components/FormAction.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/eeg_frontend/src/components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/eeg_frontend/src/components/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eeg_frontend/src/services/EmotiveClient.js" beforeDir="false" afterPath="$PROJECT_DIR$/eeg_frontend/src/services/EmotivClient.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eeg_parent.iml" beforeDir="false" afterPath="$PROJECT_DIR$/eeg_parent.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +17,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -47,12 +46,16 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "19",
     "last_opened_file_path": "C:/dev/projects/web_dev/EEG/eeg_frontend/src/App.js",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "spring.configuration.checksum": "5f45789976e99c9543cf319f3ef24cec",
     "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2022.3\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
@@ -110,7 +113,9 @@
       <workItem from="1679080701756" duration="873000" />
       <workItem from="1679083250087" duration="627000" />
       <workItem from="1681324034084" duration="4000" />
-      <workItem from="1681451400122" duration="11204000" />
+      <workItem from="1681451400122" duration="11643000" />
+      <workItem from="1681692373732" duration="1737000" />
+      <workItem from="1681717183585" duration="1775000" />
     </task>
     <task id="LOCAL-00001" summary="Init and started Emotive Client for browser.">
       <created>1678528416182</created>
@@ -147,7 +152,21 @@
       <option name="project" value="LOCAL" />
       <updated>1681451459990</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Graph to show EEG data.">
+      <created>1681462722314</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1681462722314</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Added support for graph.">
+      <created>1681462991445</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1681462991445</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -159,6 +178,8 @@
     <MESSAGE value="Data sample code." />
     <MESSAGE value="Done with basic wrapper over emotiv headset." />
     <MESSAGE value="Some small local changes." />
-    <option name="LAST_COMMIT_MESSAGE" value="Some small local changes." />
+    <MESSAGE value="Graph to show EEG data." />
+    <MESSAGE value="Added support for graph." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added support for graph." />
   </component>
 </project>
