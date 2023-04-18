@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="277adc59-f237-4992-9fca-e17304c5510d" name="Changes" comment="Started work on preprocessing deployment.">
-      <change afterPath="$PROJECT_DIR$/eeg_preprocessing/src/handler.py" afterDir="false" />
+    <list default="true" id="277adc59-f237-4992-9fca-e17304c5510d" name="Changes" comment="Progress on preprocessing.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eeg_preprocessing/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/eeg_preprocessing/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eeg_preprocessing/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eeg_preprocessing/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eeg_preprocessing/src/preprocess.py" beforeDir="false" afterPath="$PROJECT_DIR$/eeg_preprocessing/src/preprocess.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eeg_preprocessing/src/handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/eeg_preprocessing/src/handler.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +114,8 @@
       <workItem from="1681692373732" duration="1737000" />
       <workItem from="1681717183585" duration="1972000" />
       <workItem from="1681759098924" duration="1000" />
-      <workItem from="1681759117809" duration="9719000" />
+      <workItem from="1681759117809" duration="10106000" />
+      <workItem from="1681847853140" duration="1953000" />
     </task>
     <task id="LOCAL-00001" summary="Init and started Emotive Client for browser.">
       <created>1678528416182</created>
@@ -175,7 +173,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681719840874</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Progress on preprocessing.">
+      <created>1681795978577</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1681795978577</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,6 +195,7 @@
     <MESSAGE value="Graph to show EEG data." />
     <MESSAGE value="Added support for graph." />
     <MESSAGE value="Started work on preprocessing deployment." />
-    <option name="LAST_COMMIT_MESSAGE" value="Started work on preprocessing deployment." />
+    <MESSAGE value="Progress on preprocessing." />
+    <option name="LAST_COMMIT_MESSAGE" value="Progress on preprocessing." />
   </component>
 </project>

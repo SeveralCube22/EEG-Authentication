@@ -1,4 +1,5 @@
 import preprocess
+import pandas as pd
 
 def handler(event, context):
     data = event["data"]
@@ -9,7 +10,7 @@ def handler(event, context):
     psd_list = preprocess.extract_features(df.copy())
     selected_columns = ['0_beta', '2_gamma', '3_gamma', '6_gamma', '7_alpha', '9_beta', '9_gamma', '10_gamma', '11_gamma', '12_gamma']
 
-    print(psd_list)
+    print(psd_list.shape)
     selected_df = psd_list[selected_columns]
 
     return selected_df

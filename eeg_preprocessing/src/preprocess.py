@@ -58,26 +58,26 @@ def create_and_apply_ica(raw, n_components, method, random_state):
 
     return ica
 
-def window_data(df_list):
+def window_data(df):
 
     window_size = 256
     overlap = 0.5
 
     windowed_data = []
 
-    for i, df in enumerate(df_list):
-        windows = []
-        start = 0
-        end = window_size
 
-        while end <= len(df):
-            window = df.iloc[start:end].to_numpy().T
-            windows.append(window)
+    windows = []
+    start = 0
+    end = window_size
 
-            start += int(window_size * (1 - overlap))
-            end += int(window_size * (1 - overlap))
+    while end <= len(df):
+        window = df.iloc[start:end].to_numpy().T
+        windows.append(window)
 
-        windowed_data.append(windows)
+        start += int(window_size * (1 - overlap))
+        end += int(window_size * (1 - overlap))
+
+    windowed_data.append(windows)
 
     return windowed_data
 
@@ -88,30 +88,26 @@ def extract_features(windowed_data):
                   'beta': (12, 30),
                   'gamma': (30, 50)}
 
-    features_list = []
+    features = []
 
-    for user_windows in windowed_data:
-        features = []
+    for window in windowed_data[0]:  # Access the first element containing the list of windows
+        psd_features = []
 
-        for window in user_windows:
-            psd_features = []
+        for channel in window:
+            nperseg = min(len(channel), 128)
+            freqs, psd = welch(channel, fs=128, nperseg=nperseg, nfft=nperseg)
 
-            for channel in window:
-                nperseg = min(len(channel), 128)
-                freqs, psd = welch(channel, fs=128, nperseg=nperseg, nfft=nperseg)
+            band_powers = []
+            for fmin, fmax in freq_bands.values():
+                idx_min = np.argmax(freqs >= fmin)
+                idx_max = np.argmax(freqs >= fmax)
+                band_powers.append(np.sum(psd[idx_min:idx_max]))
 
-                band_powers = []
-                for fmin, fmax in freq_bands.values():
-                    idx_min = np.argmax(freqs >= fmin)
-                    idx_max = np.argmax(freqs >= fmax)
-                    band_powers.append(np.sum(psd[idx_min:idx_max]))
+            psd_features.append(band_powers)
 
-                psd_features.append(band_powers)
+        features.append(np.array(psd_features).flatten())
 
-            features.append(np.array(psd_features).flatten())
+    column_names = [f'{ch}_{band}' for ch in range(len(window)) for band in freq_bands.keys()]
+    features_df = pd.DataFrame(features, columns=column_names)
 
-        column_names = [f'{ch}_{band}' for ch in range(len(window)) for band in freq_bands.keys()]
-        features_df = pd.DataFrame(features, columns=column_names)
-        features_list.append(features_df)
-
-    return features_list
+    return features_df
