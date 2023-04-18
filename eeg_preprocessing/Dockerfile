@@ -5,4 +5,4 @@ RUN pip install -r requirements.txt
 
 COPY src/ .
 
-CMD [ "preprocess.handler" ]
+CMD [ "handler.handler" ]

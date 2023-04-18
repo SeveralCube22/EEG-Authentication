@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="277adc59-f237-4992-9fca-e17304c5510d" name="Changes" comment="Added support for graph.">
-      <change afterPath="$PROJECT_DIR$/eeg_preprocessing/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eeg_preprocessing/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eeg_preprocessing/src/preprocess.py" afterDir="false" />
+    <list default="true" id="277adc59-f237-4992-9fca-e17304c5510d" name="Changes" comment="Started work on preprocessing deployment.">
+      <change afterPath="$PROJECT_DIR$/eeg_preprocessing/src/handler.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eeg_parent.iml" beforeDir="false" afterPath="$PROJECT_DIR$/eeg_parent.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eeg_preprocessing/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/eeg_preprocessing/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eeg_preprocessing/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eeg_preprocessing/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eeg_preprocessing/src/preprocess.py" beforeDir="false" afterPath="$PROJECT_DIR$/eeg_preprocessing/src/preprocess.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,7 +19,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="graph" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -40,27 +40,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "19",
-    "last_opened_file_path": "C:/dev/projects/web_dev/EEG/eeg_frontend/src/App.js",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "spring.configuration.checksum": "5f45789976e99c9543cf319f3ef24cec",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\IntelliJ IDEA 2022.3\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;19&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/dev/projects/web_dev/EEG/eeg_frontend/src/App.js&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;5f45789976e99c9543cf319f3ef24cec&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\IntelliJ IDEA 2022.3\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="npm.start">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="EEG" />
@@ -115,7 +115,9 @@
       <workItem from="1681324034084" duration="4000" />
       <workItem from="1681451400122" duration="11643000" />
       <workItem from="1681692373732" duration="1737000" />
-      <workItem from="1681717183585" duration="1775000" />
+      <workItem from="1681717183585" duration="1972000" />
+      <workItem from="1681759098924" duration="1000" />
+      <workItem from="1681759117809" duration="9719000" />
     </task>
     <task id="LOCAL-00001" summary="Init and started Emotive Client for browser.">
       <created>1678528416182</created>
@@ -166,7 +168,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681462991445</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Started work on preprocessing deployment.">
+      <created>1681719840874</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1681719840874</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,6 +189,7 @@
     <MESSAGE value="Some small local changes." />
     <MESSAGE value="Graph to show EEG data." />
     <MESSAGE value="Added support for graph." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added support for graph." />
+    <MESSAGE value="Started work on preprocessing deployment." />
+    <option name="LAST_COMMIT_MESSAGE" value="Started work on preprocessing deployment." />
   </component>
 </project>
