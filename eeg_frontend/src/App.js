@@ -1,44 +1,32 @@
 import './App.css';
-import EmotiveClient from "./services/EmotiveClient";
 import LoginPage from "./Login";
 import {
     BrowserRouter,
     Routes,
     Route,
 } from "react-router-dom";
+import EmotivManager from "./services/EmotivManager";
+import {useEffect, useState} from "react";
+
+const CLIENT_ID = 'jywCIH1KljuJcJlVpqrYP1OhyOnT1hIpZfLKTEu7';
+const CLIENT_SECRET = 'EW9pQmSvuHIrTju192gJvmWID7kVumwNRFhUsajaSUAJpzTSKdxcGIMqKzjlvYIGBXkTJUiZ8EFylJ9PUZfxS9iVcv4aq3SJkuuPG1cYjdROBwjKCatAci4dVsvnGhOp';
+
 function App() {
-    const startEmotiveClient = async () => {
-        let client = new EmotiveClient('jywCIH1KljuJcJlVpqrYP1OhyOnT1hIpZfLKTEu7', 'EW9pQmSvuHIrTju192gJvmWID7kVumwNRFhUsajaSUAJpzTSKdxcGIMqKzjlvYIGBXkTJUiZ8EFylJ9PUZfxS9iVcv4aq3SJkuuPG1cYjdROBwjKCatAci4dVsvnGhOp');
-        await client.init();
-        await client.connect();
-        await client.createSession();
-        await client.subscribe();
+    let [eegData, setEEGData] = useState({'time': [], 'eeg': []});
+    let emotivManager = new EmotivManager(CLIENT_ID, CLIENT_SECRET, setEEGData);
 
-        setTimeout( () => {
-            console.log("STOPPED");
-            client.unsubscribe()
-                .then(() => {
-                console.log(`NUM DATA SAMPLES: ${client.dataSamples.length}`);
-                return client.closeSession();
-            })
-                .then(() => client.disconnect());
-
-        }, 61000);
-
-    }
-
-  return (
-     //<button onClick={startEmotiveClient}>Record</button>
-      <div className="min-h-full h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-md w-full space-y-8">
-              <BrowserRouter>
-                  <Routes>
-                      <Route path="/" element={<LoginPage/>} />
-                  </Routes>
-              </BrowserRouter>
-          </div>
-      </div>
-  );
+    return (
+         //<button onClick={startEmotiveClient}>Record</button>
+        <div className="min-h-full h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+            <div className="max-w-md w-full space-y-8">
+                <BrowserRouter>
+                    <Routes>
+                        <Route path="/" element={<LoginPage emotivManager={emotivManager} eegData={eegData}/>} />
+                    </Routes>
+                </BrowserRouter>
+            </div>
+        </div>
+    );
 }
 
 export default App;

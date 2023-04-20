@@ -1,28 +1,45 @@
-import { useState } from "react";
+import {useEffect, useState} from "react";
 import { loginFields } from "../constants/formFields";
 import Input from "./Input";
-import FormAction from "./FormAction";
-import startEmotiveClient from "../App"
+import {EEGDataGraph} from "./EEGDataGraph";
 
 const fields=loginFields;
 let fieldsState = {};
 fields.forEach(field=>fieldsState[field.id]='');
 
-export default function Login(){
-    const [loginState,setLoginState]=useState(fieldsState);
+export default function Login({emotivManager, eegData}) {
+    const [loginState,setLoginState] = useState(fieldsState);
+    const [showGraph, setShowGraph] = useState(false);
 
     const handleChange=(e)=>{
         setLoginState({...loginState,[e.target.id]:e.target.value})
     }
 
-    const handleSubmit=(e)=>{
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        authenticateUser();
+        await authenticateUser();
     }
 
     //Include login API integration here
-    const authenticateUser = () =>{
-        startEmotiveClient();
+    const authenticateUser =  async () => {
+        await emotivManager.init();
+        await emotivManager.subscribe();
+        setTimeout( () => {
+            emotivManager.unsubscribe()
+                .then(() => emotivManager.closeSession())
+                .then(() => emotivManager.disconnect());
+
+        }, 61000);
+    }
+
+    useEffect(() => {
+        if(eegData['time'].length > 0) setShowGraph(true);
+    }, [eegData])
+
+    const submitButton = () => {
+        return <button type={'button'} className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 mt-10"
+                       onClick={handleSubmit}
+        > {"Record EEG To Login"} </button>
     }
 
     return(
@@ -45,7 +62,8 @@ export default function Login(){
                     )
                 }
             </div>
-            <FormAction handleSubmit={handleSubmit} text="Record EEG To Login"/>
+            {submitButton()}
+            {showGraph ? <EEGDataGraph eegData={eegData}/> : <div/>}
         </form>
     );
 }

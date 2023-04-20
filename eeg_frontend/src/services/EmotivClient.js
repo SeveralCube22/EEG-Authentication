@@ -29,15 +29,15 @@ const createDeferredPromise = () => {
     return [deferredResolve, deferredReject, p];
 }
 
-class EmotiveClient {
-    constructor(clientId, clientSecret) {
+class EmotivClient {
+    constructor(clientId, clientSecret, manager) {
         this.clientId = clientId;
         this.clientSecret = clientSecret;
+        this.manager = manager;
+
         this.requests = {};
 
         this.isConnected = false;
-        this.dataCols = [];
-        this.dataSamples = [];
 
         this.ws = new WebSocket(CORTEX_URL);
         this.ws.addEventListener('message', (event) => {
@@ -325,8 +325,8 @@ class EmotiveClient {
         let time = res["time"];
         let data = res["eeg"]
         let final = {"time": time, "data": data}
-        this.dataSamples.push(final);
+        this.manager.notify(final);
     }
 }
 
-export default EmotiveClient;
+export default EmotivClient;
