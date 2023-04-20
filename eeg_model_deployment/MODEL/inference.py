@@ -84,3 +84,6 @@ def output_fn(prediction, content_type):
     res = int(prediction[0])
     respJSON = {'Output': res}
     return respJSON
+
+import __main__
+setattr(__main__, "FFNNModel", FFNNModel)

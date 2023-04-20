@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="277adc59-f237-4992-9fca-e17304c5510d" name="Changes" comment="Still working on preprocessing.">
-      <change afterPath="$PROJECT_DIR$/eeg_model_deployment/MODEL/inference.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eeg_model_deployment/MODEL/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eeg_model_deployment/deploy.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eeg_model_deployment/requirements.txt" afterDir="false" />
+    <list default="true" id="277adc59-f237-4992-9fca-e17304c5510d" name="Changes" comment="Model deployment.">
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eeg_model_deployment/MODEL/inference.py" beforeDir="false" afterPath="$PROJECT_DIR$/eeg_model_deployment/MODEL/inference.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eeg_preprocessing/src/handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/eeg_preprocessing/src/handler.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,7 +50,6 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;19&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/dev/projects/web_dev/EEG/eeg_frontend/src/App.js&quot;,
@@ -136,7 +133,8 @@
       <workItem from="1681759098924" duration="1000" />
       <workItem from="1681759117809" duration="10106000" />
       <workItem from="1681847853140" duration="4207000" />
-      <workItem from="1681934292507" duration="17886000" />
+      <workItem from="1681934292507" duration="17906000" />
+      <workItem from="1681971964263" duration="4394000" />
     </task>
     <task id="LOCAL-00001" summary="Init and started Emotive Client for browser.">
       <created>1678528416182</created>
@@ -208,7 +206,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681852413507</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Model deployment.">
+      <created>1681964402086</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1681964402086</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -225,6 +230,7 @@
     <MESSAGE value="Started work on preprocessing deployment." />
     <MESSAGE value="Progress on preprocessing." />
     <MESSAGE value="Still working on preprocessing." />
-    <option name="LAST_COMMIT_MESSAGE" value="Still working on preprocessing." />
+    <MESSAGE value="Model deployment." />
+    <option name="LAST_COMMIT_MESSAGE" value="Model deployment." />
   </component>
 </project>

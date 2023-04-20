@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/eeg_backend/eeg_backend.iml" filepath="$PROJECT_DIR$/eeg_backend/eeg_backend.iml" />
       <module fileurl="file://$PROJECT_DIR$/eeg_frontend/eeg_frontend.iml" filepath="$PROJECT_DIR$/eeg_frontend/eeg_frontend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/eeg_model_deployment/eeg_model_deployment.iml" filepath="$PROJECT_DIR$/eeg_model_deployment/eeg_model_deployment.iml" />
       <module fileurl="file://$PROJECT_DIR$/eeg_parent.iml" filepath="$PROJECT_DIR$/eeg_parent.iml" />
     </modules>
   </component>

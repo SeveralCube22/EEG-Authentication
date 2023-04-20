@@ -1,5 +1,6 @@
 import preprocess
 import pandas as pd
+import json
 
 def handler(event, context):
     data = event["data"]
@@ -12,5 +13,5 @@ def handler(event, context):
     selected_columns = ['0_beta', '2_gamma', '3_gamma', '6_gamma', '7_alpha', '9_beta', '9_gamma', '10_gamma', '11_gamma', '12_gamma']
 
     selected_df = psd_list[selected_columns]
-    print(selected_df)
-    return selected_df.to_json()
+
+    return json.dumps(selected_df.values.tolist())
