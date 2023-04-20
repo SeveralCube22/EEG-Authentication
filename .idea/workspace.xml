@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="277adc59-f237-4992-9fca-e17304c5510d" name="Changes" comment="Progress on preprocessing.">
+    <list default="true" id="277adc59-f237-4992-9fca-e17304c5510d" name="Changes" comment="Still working on preprocessing.">
+      <change afterPath="$PROJECT_DIR$/eeg_model_deployment/MODEL/inference.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eeg_model_deployment/MODEL/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eeg_model_deployment/deploy.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eeg_model_deployment/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eeg_preprocessing/src/handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/eeg_preprocessing/src/handler.py" afterDir="false" />
     </list>
@@ -12,6 +16,13 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -58,6 +69,15 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\dev\projects\web_dev\EEG\eeg_model_deployment\MODEL" />
+      <recent name="C:\dev\projects\web_dev\EEG\eeg_model_deployment" />
+      <recent name="C:\dev\projects\web_dev\EEG" />
+      <recent name="C:\dev\projects\web_dev\EEG\eeg_model" />
+      <recent name="C:\dev\projects\web_dev\EEG\eeg_model\MODEL" />
+    </key>
+  </component>
   <component name="RunManager" selected="npm.start">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="EEG" />
@@ -115,7 +135,8 @@
       <workItem from="1681717183585" duration="1972000" />
       <workItem from="1681759098924" duration="1000" />
       <workItem from="1681759117809" duration="10106000" />
-      <workItem from="1681847853140" duration="1953000" />
+      <workItem from="1681847853140" duration="4207000" />
+      <workItem from="1681934292507" duration="17886000" />
     </task>
     <task id="LOCAL-00001" summary="Init and started Emotive Client for browser.">
       <created>1678528416182</created>
@@ -180,7 +201,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681795978577</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Still working on preprocessing.">
+      <created>1681852413507</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1681852413507</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,6 +224,7 @@
     <MESSAGE value="Added support for graph." />
     <MESSAGE value="Started work on preprocessing deployment." />
     <MESSAGE value="Progress on preprocessing." />
-    <option name="LAST_COMMIT_MESSAGE" value="Progress on preprocessing." />
+    <MESSAGE value="Still working on preprocessing." />
+    <option name="LAST_COMMIT_MESSAGE" value="Still working on preprocessing." />
   </component>
 </project>
