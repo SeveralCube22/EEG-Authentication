@@ -14,4 +14,4 @@ def handler(event, context):
 
     selected_df = psd_list[selected_columns]
 
-    return json.dumps(selected_df.values.tolist())
+    return selected_df.to_json()

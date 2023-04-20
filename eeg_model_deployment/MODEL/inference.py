@@ -48,8 +48,8 @@ def input_fn(request_body, request_content_type):
     if request_content_type == 'application/json':
         request_body = json.loads(request_body)
         inpVar = request_body['Input']
-# Convert to a pandas df aka model acceptable format
-        selected_df = pd.DataFrame(inpVar)
+        # Convert to a pandas df aka model acceptable format
+        selected_df = pd.read_json(inpVar)
         return selected_df
     else:
         raise ValueError("This model only supports application/json input")
