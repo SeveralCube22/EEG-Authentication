@@ -45,7 +45,7 @@ jobs:
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
           aws_secret_key: ${{ secrets.AWS_SECRET_KEY }}
-          region: us-east-1
+          region: us-west-1
           application_name: EEG Auth
           environment_name: EEGAuth-env
           version_label: ${{github.SHA}}
