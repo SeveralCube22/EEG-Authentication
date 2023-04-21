@@ -12,10 +12,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2.4.2
       
-      - name: Setup JDK 11
+      - name: Setup JDK 19
         uses: actions/setup-java@v3.5.0
         with:
-          java-version: '11'
+          java-version: '19'
           distribution: 'adopt'
           architecture: x64
           
@@ -45,9 +45,8 @@ jobs:
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
           aws_secret_key: ${{ secrets.AWS_SECRET_KEY }}
-          region: us-east-1
-          application_name: EEG Auth
-          environment_name: EEGAuth-env
+          region: us-west-1
+          application_name: EEG Authentication
+          environment_name: Eegauthentication-env
           version_label: ${{github.SHA}}
           deployment_package: eeg_backend-0.0.1-SNAPSHOT.jar
-          use_existing_version_if_available: true
