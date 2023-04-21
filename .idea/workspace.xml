@@ -4,10 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="277adc59-f237-4992-9fca-e17304c5510d" name="Changes" comment="Change handler return.">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="277adc59-f237-4992-9fca-e17304c5510d" name="Changes" comment="Disable ESLint">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eeg_backend/src/main/java/com/vmanam/eeg_backend/EegBackendApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/eeg_backend/src/main/java/com/vmanam/eeg_backend/EegBackendApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eeg_frontend/target/classes/static/asset-manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eeg_frontend/target/classes/static/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eeg_frontend/target/classes/static/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eeg_frontend/target/classes/static/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eeg_frontend/target/classes/static/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eeg_frontend/target/classes/static/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eeg_frontend/target/classes/static/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eeg_frontend/target/classes/static/static/css/main.93965c17.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eeg_frontend/target/classes/static/static/css/main.93965c17.css.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eeg_frontend/target/classes/static/static/js/787.081ae377.chunk.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eeg_frontend/target/classes/static/static/js/787.081ae377.chunk.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eeg_frontend/target/classes/static/static/js/main.a202284c.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eeg_frontend/target/classes/static/static/js/main.a202284c.js.LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eeg_frontend/target/classes/static/static/js/main.a202284c.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eeg_frontend/target/eeg_frontend-0.0.1-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eeg_frontend/target/maven-archiver/pom.properties" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +149,7 @@
       <workItem from="1681934292507" duration="17906000" />
       <workItem from="1681971964263" duration="4394000" />
       <workItem from="1681982647359" duration="505000" />
-      <workItem from="1682023064101" duration="3488000" />
+      <workItem from="1682023064101" duration="4997000" />
     </task>
     <task id="LOCAL-00001" summary="Init and started Emotive Client for browser.">
       <created>1678528416182</created>
@@ -228,7 +242,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681983150708</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Disable ESLint">
+      <created>1682049006305</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1682049006305</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -259,6 +280,7 @@
     <MESSAGE value="Model deployment." />
     <MESSAGE value="Add model file" />
     <MESSAGE value="Change handler return." />
-    <option name="LAST_COMMIT_MESSAGE" value="Change handler return." />
+    <MESSAGE value="Disable ESLint" />
+    <option name="LAST_COMMIT_MESSAGE" value="Disable ESLint" />
   </component>
 </project>
