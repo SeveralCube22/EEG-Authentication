@@ -49,4 +49,5 @@ jobs:
           application_name: EEG Authentication
           environment_name: Eegauthentication-env
           version_label: ${{github.SHA}}
+          use_existing_version_if_available: true
           deployment_package: eeg_backend-0.0.1-SNAPSHOT.jar
