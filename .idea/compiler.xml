@@ -11,7 +11,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="eeg_backend" target="19" />
+      <module name="eeg_backend" target="11" />
       <module name="eeg_frontend" target="17" />
       <module name="eeg_parent" target="17" />
     </bytecodeTargetLevel>
