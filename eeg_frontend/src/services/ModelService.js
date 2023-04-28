@@ -1,7 +1,7 @@
 
 class ModelService {
     static getId(data) {
-        let url = AUTH_URL + "login";
+        let url = API_URL + "/model/data";
         let config = {
             method: 'post',
             url: url,
