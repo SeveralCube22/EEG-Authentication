@@ -24,11 +24,13 @@ export default function Login({emotivManager, eegData}) {
     const authenticateUser =  async () => {
         await emotivManager.init();
         await emotivManager.subscribe();
-        setTimeout( () => {
+        setTimeout( async () => {
             emotivManager.unsubscribe()
                 .then(() => emotivManager.closeSession())
                 .then(() => emotivManager.disconnect());
 
+            ModelService.getId(eegData['eeg'])
+                .then((res) => console.log('res'));
         }, 61000);
     }
 
