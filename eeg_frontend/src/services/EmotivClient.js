@@ -302,7 +302,6 @@ class EmotivClient {
     }
 
     onMessage(data) {
-        console.log(data);
         let res = JSON.parse(data);
         if("id" in res) {
             this.requests[res['id']](res);
@@ -324,7 +323,7 @@ class EmotivClient {
     handleDataSample(res) {
         let time = res["time"];
         let data = res["eeg"]
-        let final = {"time": time, "data": data}
+        let final = {"time": time, "eeg": data}
         this.manager.notify(final);
     }
 }

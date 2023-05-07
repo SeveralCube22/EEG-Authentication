@@ -2,12 +2,15 @@ import {useEffect, useState} from "react";
 import { loginFields } from "../constants/formFields";
 import Input from "./Input";
 import {EEGDataGraph} from "./EEGDataGraph";
+import {CLIENT_ID, CLIENT_SECRET} from "../constants/EmotivCreds"
+import ModelService from "../services/ModelService";
+import EmotivManager from "../services/EmotivManager";
 
 const fields=loginFields;
 let fieldsState = {};
 fields.forEach(field=>fieldsState[field.id]='');
 
-export default function Login({emotivManager, eegData}) {
+export default function Login({setEEGData, eegData}) {
     const [loginState,setLoginState] = useState(fieldsState);
     const [showGraph, setShowGraph] = useState(false);
 
@@ -22,6 +25,7 @@ export default function Login({emotivManager, eegData}) {
 
     //Include login API integration here
     const authenticateUser =  async () => {
+        let emotivManager = new EmotivManager(CLIENT_ID, CLIENT_SECRET, setEEGData);
         await emotivManager.init();
         await emotivManager.subscribe();
         setTimeout( async () => {

@@ -55,8 +55,6 @@ export function EEGDataGraph({eegData}) {
     }
 
     const buildEEGDataset = (splicedTimeData, splicedEEGData) => {
-        console.log(splicedTimeData)
-        console.log(splicedEEGData)
         return EEG_LABELS.map((label, index) => {
             let graphData = {
                 label: label,

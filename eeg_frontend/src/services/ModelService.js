@@ -1,3 +1,5 @@
+import axios from "axios";
+import API_URL from "../constants/API_URL";
 
 class ModelService {
     static getId(data) {
@@ -17,3 +19,5 @@ class ModelService {
             });
     }
 }
+
+export default ModelService

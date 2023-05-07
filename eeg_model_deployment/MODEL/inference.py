@@ -5,6 +5,7 @@ import pandas as pd
 import torch
 import torch.nn as nn
 import numpy as np
+from collections import Counter
 
 class FFNNModel(nn.Module):
     def __init__(self, input_size, num_classes):
@@ -81,8 +82,9 @@ output_fn
 """
 
 def output_fn(prediction, content_type):
-    res = int(prediction[0])
-    respJSON = {'Output': res}
+    counter = Counter(prediction)
+    majority_vote = counter.most_common(1)[0][0]
+    respJSON = {'Output': majority_vote}
     return respJSON
 
 import __main__

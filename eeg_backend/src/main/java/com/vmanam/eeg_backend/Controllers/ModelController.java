@@ -40,7 +40,6 @@ public class ModelController {
 
         String preprocessedRes = lambdaClient.invoke(preprocessReq).payload().asUtf8String() ;
         String modelReqBody = "{\"Input\":" + preprocessedRes + "}";
-        System.out.println(modelReqBody);
         SageMakerRuntimeClient sagemakerClient = SageMakerRuntimeClient.builder()
                 .credentialsProvider(DefaultCredentialsProvider.create())
                 .region(Region.US_WEST_1)
