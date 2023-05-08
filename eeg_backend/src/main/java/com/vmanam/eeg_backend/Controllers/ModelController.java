@@ -1,5 +1,6 @@
 package com.vmanam.eeg_backend.Controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,6 +27,12 @@ public class ModelController {
     @Value("${sagemaker.endpoint.name}")
     private String sagemakerEndpointName;
 
+    @Autowired
+    SageMakerRuntimeClient sagemakerClient;
+
+    @Autowired
+    LambdaClient lambdaClient;
+
     @PostMapping("/data")
     public String classifyEEGData(@RequestBody String reqData) {
         InvokeRequest preprocessReq = InvokeRequest.builder()
@@ -33,17 +40,8 @@ public class ModelController {
                 .payload(SdkBytes.fromUtf8String(reqData))
                 .build();
 
-        LambdaClient lambdaClient = LambdaClient.builder()
-                .credentialsProvider(DefaultCredentialsProvider.create())
-                .region(Region.US_WEST_1)
-                .build();
-
         String preprocessedRes = lambdaClient.invoke(preprocessReq).payload().asUtf8String() ;
         String modelReqBody = "{\"Input\":" + preprocessedRes + "}";
-        SageMakerRuntimeClient sagemakerClient = SageMakerRuntimeClient.builder()
-                .credentialsProvider(DefaultCredentialsProvider.create())
-                .region(Region.US_WEST_1)
-                .build();
 
         InvokeEndpointRequest modelReq = InvokeEndpointRequest.builder()
                 .endpointName(sagemakerEndpointName)

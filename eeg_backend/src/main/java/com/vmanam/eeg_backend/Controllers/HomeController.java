@@ -8,7 +8,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class HomeController {
     @GetMapping("/")
-    public String getHome() {
+    public String getRoot() {
         return "index.html";
     }
+
+    @GetMapping("/admin")
+    public String getAdmin() {return "forward:/";}
+
+    @GetMapping("/adminpage")
+    public String getAdminPage() {return "forward:/";}
+
+    @GetMapping("/home")
+    public String getHome() {return "forward:/";}
 }
