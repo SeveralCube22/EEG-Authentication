@@ -2,9 +2,6 @@ import {useEffect, useState} from "react";
 import { loginFields } from "../constants/formFields";
 import Input from "./Input";
 import {EEGDataGraph} from "./EEGDataGraph";
-import {CLIENT_ID, CLIENT_SECRET} from "../constants/EmotivCreds"
-import ModelService from "../services/ModelService";
-import EmotivManager from "../services/EmotivManager";
 
 const fields=loginFields;
 let fieldsState = {};
@@ -38,6 +35,12 @@ export default function Login({setEEGData, eegData}) {
         }, 61000);
     }
 
+    let navigate = useNavigate();
+    const routeToAdmin = () => {
+        let path = "/adminpage";
+        navigate(path);
+    }
+
     useEffect(() => {
         if(eegData['time'].length > 0) setShowGraph(true);
     }, [eegData])
@@ -47,6 +50,14 @@ export default function Login({setEEGData, eegData}) {
                        onClick={handleSubmit}
         > {"Record EEG To Login"} </button>
     }
+
+    const toAdminButton = () => {
+        return <button type={'button'} className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-purple-600 hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 mt-10"
+                       onClick={routeToAdmin}
+        > {"Go To Admin Page"} </button>
+    }
+
+
 
     return(
         <form className="mt-8 space-y-6">
@@ -69,6 +80,7 @@ export default function Login({setEEGData, eegData}) {
                 }
             </div>
             {submitButton()}
+            {toAdminButton()}
             {showGraph ? <EEGDataGraph eegData={eegData}/> : <div/>}
         </form>
     );
