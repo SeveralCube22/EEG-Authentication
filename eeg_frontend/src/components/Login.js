@@ -1,7 +1,11 @@
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import { loginFields } from "../constants/formFields";
 import Input from "./Input";
 import {EEGDataGraph} from "./EEGDataGraph";
+import {useNavigate} from "react-router-dom";
+import EmotivManager from "../services/EmotivManager";
+import {CLIENT_ID, CLIENT_SECRET} from "../constants/EmotivCreds";
+import ModelService from "../services/ModelService";
 
 const fields=loginFields;
 let fieldsState = {};
@@ -10,6 +14,9 @@ fields.forEach(field=>fieldsState[field.id]='');
 export default function Login({setEEGData, eegData}) {
     const [loginState,setLoginState] = useState(fieldsState);
     const [showGraph, setShowGraph] = useState(false);
+
+    const eegDataRef = useRef(eegData);
+    eegDataRef.current = eegData;
 
     const handleChange=(e)=>{
         setLoginState({...loginState,[e.target.id]:e.target.value})
@@ -25,19 +32,23 @@ export default function Login({setEEGData, eegData}) {
         let emotivManager = new EmotivManager(CLIENT_ID, CLIENT_SECRET, setEEGData);
         await emotivManager.init();
         await emotivManager.subscribe();
-        setTimeout( async () => {
+        setTimeout( () => {
             emotivManager.unsubscribe()
                 .then(() => emotivManager.closeSession())
-                .then(() => emotivManager.disconnect());
+                .then(() => emotivManager.disconnect())
+                .then(() => {
+                    let data = eegDataRef.current['eeg'];
+                    return ModelService.getId(loginState.email, data)
+                })
+                .then((res) => console.log(res)) //TODO: Navigate to home page and display user name;
+                .catch((err) => console.log(err)); //TODO: Display error message
 
-            ModelService.getId(eegData['eeg'])
-                .then((res) => console.log('res'));
         }, 61000);
     }
 
     let navigate = useNavigate();
     const routeToAdmin = () => {
-        let path = "/adminpage";
+        let path = "/admin";
         navigate(path);
     }
 

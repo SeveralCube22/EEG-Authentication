@@ -41,6 +41,18 @@ public class AuthController {
         return new ResponseEntity<Boolean>(user.isPresent(), HttpStatus.OK);
     }
 
+    @GetMapping("/isadmin")
+    public boolean isAdmin() {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        return user.getRoles().contains("ADMIN");
+    }
+
+    @GetMapping("/userinfo")
+    public User getUser() {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        return user;
+    }
+
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping(value="/user")
     public ResponseEntity<String> createNewUser(@RequestBody UserCreateDTO user)  {

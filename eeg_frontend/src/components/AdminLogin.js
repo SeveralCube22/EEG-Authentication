@@ -2,7 +2,7 @@ import {adminLoginFields, loginFields} from "../constants/formFields";
 import {useState} from "react";
 import Input from "./Input";
 import axios from "axios";
-
+import AuthService from "../services/AuthService";
 
 const fields = adminLoginFields;
 let fieldState = {};
@@ -20,21 +20,15 @@ export default function AdminLogin () {
     }
 
     //Authentication will be done here
-    const authenticateAdmin =()=> {
-
-        axios({
-            method: 'post',
-            url: 'http://localhost:8080/checkadmin',
-            data: {
-                userName: adminLoginState.username,
-                pass: adminLoginState.password
-            }
-        }).then((response) => {
-            console.log(response);
-        },
-            (error) => {
-            console.log(error);
-            });
+    const authenticateAdmin = async () => {
+        let isAdmin = await AuthService.login(adminLoginState.username, adminLoginState.password);
+        if(isAdmin) {
+            console.log("ADMIN");
+            // TODO: Navigate to /adminpage
+        }
+        else {
+            // TODO: display error message
+        }
     }
 
     const submitButton = () => {

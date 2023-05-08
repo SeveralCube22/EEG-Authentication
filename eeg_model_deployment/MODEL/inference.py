@@ -83,8 +83,8 @@ output_fn
 
 def output_fn(prediction, content_type):
     counter = Counter(prediction)
-    majority_vote = counter.most_common(1)[0][0]
-    respJSON = {'Output': majority_vote}
+    majority_vote = counter.most_common(1)[0]
+    respJSON = {'Output': majority_vote[0], 'Confidence': majority_vote[1] / len(prediction)}
     return respJSON
 
 import __main__

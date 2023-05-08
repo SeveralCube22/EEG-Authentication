@@ -24,7 +24,6 @@ public class JwtUserDetailsService implements UserDetailsService {
         Optional<User> pot = userRepository.findById(username);
         if(!pot.isPresent()) throw new UsernameNotFoundException("User " + username + " does not exist");
 
-        User user = pot.get();
-        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), user.getAuthorities());
+        return pot.get();
     }
 }

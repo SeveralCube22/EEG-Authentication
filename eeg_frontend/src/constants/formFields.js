@@ -1,12 +1,12 @@
 const loginFields=[
     {
-        labelText: "Username",
-        labelFor: "username",
-        id:"username",
-        name:"username",
-        autocomplete:"username",
+        labelText: "Email",
+        labelFor: "email",
+        id:"email",
+        name:"email",
+        autocomplete:"email",
         isRequired: true,
-        placeholder: "Username"
+        placeholder: "Email"
     }
 ];
 
