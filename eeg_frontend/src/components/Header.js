@@ -4,7 +4,8 @@ export default function Header({
     heading,
     paragraph,
     linkName,
-    linkUrl = "#"
+    linkUrl = "#",
+    imgUrl = "https://us.123rf.com/450wm/tpimovit/tpimovit2110/tpimovit211000084/175612677-brain-wave-3d.jpg?ver=6"
                                }){
     return (
         <div className="mb-10">
@@ -12,7 +13,7 @@ export default function Header({
                 <img
                     alt=""
                     className="h-20 w-25 rounded"
-                    src="https://us.123rf.com/450wm/tpimovit/tpimovit2110/tpimovit211000084/175612677-brain-wave-3d.jpg?ver=6"/>
+                    src={imgUrl}/>
             </div>
             <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
                 {heading}

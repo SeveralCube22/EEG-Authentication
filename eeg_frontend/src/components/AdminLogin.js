@@ -3,6 +3,7 @@ import {useState} from "react";
 import Input from "./Input";
 import axios from "axios";
 import AuthService from "../services/AuthService";
+import {useNavigate} from "react-router-dom";
 
 const fields = adminLoginFields;
 let fieldState = {};
@@ -19,15 +20,21 @@ export default function AdminLogin () {
         authenticateAdmin();
     }
 
+    let navigate = useNavigate();
+    const routeToUploadPage = () => {
+        let path = "/adminpage";
+        navigate(path);
+    }
     //Authentication will be done here
     const authenticateAdmin = async () => {
         let isAdmin = await AuthService.login(adminLoginState.username, adminLoginState.password);
         if(isAdmin) {
             console.log("ADMIN");
-            // TODO: Navigate to /adminpage
+            routeToUploadPage();
         }
         else {
             // TODO: display error message
+            alert("Incorrect credentials.");
         }
     }
 
