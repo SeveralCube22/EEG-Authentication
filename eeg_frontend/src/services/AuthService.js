@@ -43,6 +43,23 @@ class AuthService {
             });
     }
 
+    static getUserInfo() {
+        let url = API_URL + "/auth/userinfo";
+        let config = {
+            method: 'get',
+            url: url,
+            headers: {
+                ...AuthService.authHeader(),
+                'Content-Type': 'application/json'
+            },
+        };
+        return axios(config)
+            .then((response) => {
+                return response;
+            });
+    }
+
+
     static authHeader() {
         const user = JSON.parse(localStorage.getItem('user'));
 

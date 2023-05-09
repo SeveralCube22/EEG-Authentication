@@ -40,10 +40,15 @@ export default function Login({setEEGData, eegData}) {
                     let data = eegDataRef.current['eeg'];
                     return ModelService.getId(loginState.email, data)
                 })
-                .then((res) => console.log(res)) //TODO: Navigate to home page and display user name;
-                .catch((err) => console.log(err)); //TODO: Display error message
+                .then((res) => routeToHome()) //no longer prints "res" to console
+                .catch((err) => alert(err)); //TODO: Display error message, simple alert for now
 
         }, 61000);
+    }
+
+    const routeToHome = () => {
+        let path = "/home";
+        navigate(path);
     }
 
     let navigate = useNavigate();
