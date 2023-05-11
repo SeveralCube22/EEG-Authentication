@@ -1,5 +1,6 @@
 import axios from "axios";
 import API_URL from "../constants/API_URL";
+import AuthService from "./AuthService";
 
 class ModelService {
     static getId(email, data) {
@@ -21,6 +22,23 @@ class ModelService {
                 else {
                     return response;
                 }
+            });
+    }
+
+    static getIdFromAdmin(data) {
+        let url = API_URL + "/model/admindata";
+        let config = {
+            method: 'post',
+            url: url,
+            headers: {
+                ...AuthService.authHeader(),
+                'Content-Type': 'application/json'
+            },
+            data : { "data": data }
+        };
+        return axios(config)
+            .then((response) => {
+                return response;
             });
     }
 }

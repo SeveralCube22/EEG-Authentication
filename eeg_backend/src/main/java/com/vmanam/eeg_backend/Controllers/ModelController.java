@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -90,5 +91,30 @@ public class ModelController {
         }
         else
             return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+    }
+
+    @PreAuthorize("hasRole('ADMIN')")
+    @PostMapping("/admindata")
+    public String classifyEEGData(@RequestBody String data) throws JsonProcessingException {
+        InvokeRequest preprocessReq = InvokeRequest.builder()
+                .functionName(preprocessingFunctionName)
+                .payload(SdkBytes.fromUtf8String(data))
+                .build();
+
+        String preprocessedRes = lambdaClient.invoke(preprocessReq).payload().asUtf8String() ;
+        String modelReqBody = "{\"Input\":" + preprocessedRes + "}";
+
+        InvokeEndpointRequest modelReq = InvokeEndpointRequest.builder()
+                .endpointName(sagemakerEndpointName)
+                .contentType("application/json")
+                .body(SdkBytes.fromString(modelReqBody, Charset.defaultCharset()))
+                .build();
+
+        String result = sagemakerClient.invokeEndpoint(modelReq).body().asString(Charset.defaultCharset());
+        Map<String, Integer> map = mapper.readValue(result, Map.class);
+        int userId = map.get("Output");
+        Optional<User> potUser = userRepository.findByUserId(userId);
+        if(!potUser.isPresent()) return "User not found!";
+        else return potUser.get().getName();
     }
 }
