@@ -10,6 +10,7 @@ import {useEffect, useState} from "react";
 import AdminLoginPage from "./Admin";
 import Home from "./Home";
 import AdminUpload from "./AdminUpload";
+import Confidence from "./Confidence";
 
 const CLIENT_ID = 'jywCIH1KljuJcJlVpqrYP1OhyOnT1hIpZfLKTEu7';
 const CLIENT_SECRET = 'EW9pQmSvuHIrTju192gJvmWID7kVumwNRFhUsajaSUAJpzTSKdxcGIMqKzjlvYIGBXkTJUiZ8EFylJ9PUZfxS9iVcv4aq3SJkuuPG1cYjdROBwjKCatAci4dVsvnGhOp';
@@ -27,6 +28,7 @@ function App() {
                         <Route path="/admin" element={<AdminLoginPage/>} />
                         <Route path="/home" element={<Home/>} />
                         <Route path="/adminpage" element={<AdminUpload/>} />
+                        <Route path="/confidence" element={<Confidence/>} />
                     </Routes>
                 </BrowserRouter>
             </div>
