@@ -29,8 +29,7 @@ export default function AdminLogin () {
     const authenticateAdmin = async () => {
         let isAdmin = await AuthService.login(adminLoginState.username, adminLoginState.password);
         if(isAdmin) {
-            console.log("ADMIN");
-            routeToUploadPage();
+            navigate("/adminpage");
         }
         else {
             // TODO: display error message

@@ -5,15 +5,11 @@ import {
     Routes,
     Route,
 } from "react-router-dom";
-import EmotivManager from "./services/EmotivManager";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import AdminLoginPage from "./Admin";
 import Home from "./Home";
 import AdminUpload from "./AdminUpload";
 import Confidence from "./Confidence";
-
-const CLIENT_ID = 'jywCIH1KljuJcJlVpqrYP1OhyOnT1hIpZfLKTEu7';
-const CLIENT_SECRET = 'EW9pQmSvuHIrTju192gJvmWID7kVumwNRFhUsajaSUAJpzTSKdxcGIMqKzjlvYIGBXkTJUiZ8EFylJ9PUZfxS9iVcv4aq3SJkuuPG1cYjdROBwjKCatAci4dVsvnGhOp';
 
 function App() {
     let [eegData, setEEGData] = useState({'time': [], 'eeg': []});

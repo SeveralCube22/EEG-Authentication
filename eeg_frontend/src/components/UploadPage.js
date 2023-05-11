@@ -4,6 +4,7 @@ import {useNavigate} from "react-router-dom";
 
 export default function UploadPage () {
     let [dataFile, setDataFile] = useState(null);
+    let navigate = useNavigate();
 
     const handleFileChange = e => {
         const fileReader = new FileReader();
@@ -13,17 +14,11 @@ export default function UploadPage () {
         };
     };
 
-    const navigate = useNavigate();
-
-
     const uploadDataFile = async (e) => {
         if(dataFile) {
             let data = JSON.parse(dataFile); // DataFile will be in form {data: [[...]]} only sending the list as server will append {data: ...} anyways
             let response = await ModelService.getIdFromAdmin(data["data"]);
-            console.log(response['data']);
-            navigate('/confidence', {state: response}) //navigate to new page and send retrieved data to it
-
-            //alert(response['data']);
+            navigate('/confidence', {state: {response: response}}) //navigate to new page and send retrieved data to it
         }
     }
 

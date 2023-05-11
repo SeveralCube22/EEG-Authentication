@@ -20,4 +20,7 @@ public class HomeController {
 
     @GetMapping("/home")
     public String getHome() {return "forward:/";}
+
+    @GetMapping("/confidence")
+    public String getConfidence() {return "forward:/";}
 }

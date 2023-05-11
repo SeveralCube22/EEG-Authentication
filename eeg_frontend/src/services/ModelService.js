@@ -38,7 +38,7 @@ class ModelService {
         };
         return axios(config)
             .then((response) => {
-                return response;
+                return response["data"];
             });
     }
 }

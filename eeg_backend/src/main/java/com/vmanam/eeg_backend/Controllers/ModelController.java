@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.vmanam.eeg_backend.Configurations.JwtTokenUtil;
 import com.vmanam.eeg_backend.DTOs.JwtResponseDTO;
 import com.vmanam.eeg_backend.DTOs.ModelDataDTO;
+import com.vmanam.eeg_backend.DTOs.ModelReturnDTO;
 import com.vmanam.eeg_backend.Entities.User;
 import com.vmanam.eeg_backend.Repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -95,7 +96,7 @@ public class ModelController {
 
     @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/admindata")
-    public String classifyEEGData(@RequestBody String data) throws JsonProcessingException {
+    public ModelReturnDTO classifyEEGData(@RequestBody String data) throws JsonProcessingException {
         InvokeRequest preprocessReq = InvokeRequest.builder()
                 .functionName(preprocessingFunctionName)
                 .payload(SdkBytes.fromUtf8String(data))
@@ -111,10 +112,10 @@ public class ModelController {
                 .build();
 
         String result = sagemakerClient.invokeEndpoint(modelReq).body().asString(Charset.defaultCharset());
-        Map<String, Integer> map = mapper.readValue(result, Map.class);
-        int userId = map.get("Output");
+        Map<String, Object> map = mapper.readValue(result, Map.class);
+        int userId = (Integer) map.get("Output");
         Optional<User> potUser = userRepository.findByUserId(userId);
-        if(!potUser.isPresent()) return "User not found!";
-        else return potUser.get().getName();
+        if(!potUser.isPresent()) return new ModelReturnDTO("User does not exist!", 0);
+        else return new ModelReturnDTO(potUser.get().getName(), (float) ((double) map.get("Confidence") * 100.0f));
     }
 }
