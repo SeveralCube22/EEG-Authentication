@@ -55,7 +55,7 @@ class AuthService {
         };
         return axios(config)
             .then((response) => {
-                return response;
+                return response["data"];
             });
     }
 

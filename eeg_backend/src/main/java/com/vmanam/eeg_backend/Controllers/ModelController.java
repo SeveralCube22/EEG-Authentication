@@ -79,19 +79,18 @@ public class ModelController {
         Map<String, Integer> map = mapper.readValue(result, Map.class);
         int userId = map.get("Output");
         Optional<User> potUser = userRepository.findByUserId(userId);
-        if(potUser.isPresent()) {
-            User user = potUser.get();
-            if(user.getEmail().equals(modelDTO.getEmail())) {
+        User user = potUser.get(); // Model always returns a user.
+
+        if(user.getUserId() == 0)
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+        else if(user.getEmail().equals(modelDTO.getEmail())) {
                 Authentication authentication = new UsernamePasswordAuthenticationToken(user, null, user.getAuthorities());
                 SecurityContextHolder.getContext().setAuthentication(authentication);
                 final String token = jwtTokenUtil.generateToken(authentication);
                 return ResponseEntity.ok(new JwtResponseDTO(token));
             }
-            else
-                return ResponseEntity.status(HttpStatus.CONFLICT).build(); // EEG Data is saying that it is another user or actual user gave wrong email leading to the email's being different
-        }
         else
-            return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+            return ResponseEntity.status(HttpStatus.CONFLICT).build(); // EEG Data is saying that it is another user or actual user gave wrong email leading to the email's being different
     }
 
     @PreAuthorize("hasRole('ADMIN')")
@@ -115,7 +114,8 @@ public class ModelController {
         Map<String, Object> map = mapper.readValue(result, Map.class);
         int userId = (Integer) map.get("Output");
         Optional<User> potUser = userRepository.findByUserId(userId);
-        if(!potUser.isPresent()) return new ModelReturnDTO("User does not exist!", 0);
-        else return new ModelReturnDTO(potUser.get().getName(), (float) ((double) map.get("Confidence") * 100.0f));
+        User user = potUser.get();
+        if(user.getUserId() == 0) return new ModelReturnDTO("User does not exist!", 0);
+        else return new ModelReturnDTO(user.getName(), (float) ((double) map.get("Confidence") * 100.0f));
     }
 }
